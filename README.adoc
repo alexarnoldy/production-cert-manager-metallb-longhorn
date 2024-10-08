@@ -2,11 +2,11 @@
 
 This repository contains directories that contain production ready deployments for MetalLB, cert-manager, and Longhorn.
 
-Enter each directory, in turn, and execute the commands in order. 
+* Each of the three products/projects can be deployed independently, if needed.
 
-* The first command in the MetalLB and cert-manager directories are hard-linked and are used to set the variables for those two installations.
+Enter each directory, in turn, and execute the commands, in the prescribed order. 
 
-* Each of the three elements can be deployed independently, if needed.
+* The first command in the MetalLB and cert-manager directories are hard-linked and are used to set the variables needed for those two installations.
 
 * The advantage of this MetalLB pattern is that it provides an IPAddressPool for the primary application, e.g. SUSE Private AI, that will not be automatically assigned. This allows for specific, permanent DNS resolution for that application.
 
