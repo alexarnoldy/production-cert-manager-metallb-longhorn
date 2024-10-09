@@ -1,7 +1,7 @@
 source /tmp/variables && \
 kubectl apply -f - <<EOF
 apiVersion: apps/v1
-kind: Deployment
+kind: Daemonset
 metadata:
   name: nginx
   namespace: default
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1
+        image: nginx:1.27.2
         ports:
         - name: http
           containerPort: 80
