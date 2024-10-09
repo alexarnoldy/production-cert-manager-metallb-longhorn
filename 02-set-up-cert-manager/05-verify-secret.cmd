@@ -8,6 +8,6 @@ read -n1 -p "Is the secret key correct? (y/n) " YESNO
 
 echo ""
 
-[ ${YESNO} != y ] && { echo "Please repeat the instructions of setting the variable and creating the secret and re-verify."; echo ""; exit; }
+[ ${YESNO} != y ] && { echo "Please troubleshoot the creation of the secret, then repeat this step."; echo ""; exit; }
 
 rm /tmp/.dns-cred
