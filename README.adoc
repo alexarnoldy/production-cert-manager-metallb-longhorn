@@ -8,6 +8,8 @@ Enter each directory, in turn, and execute the commands, in the prescribed order
 
 * The first command in the MetalLB and cert-manager directories are hard-linked and are used to set the variables needed for those two installations.
 
+** Longhorn has a similar command to identify the cluster nodes that will run Longhorn.
+
 * The advantage of this MetalLB pattern is that it provides an IPAddressPool for the primary application, e.g. SUSE Private AI, that will not be automatically assigned. This allows for specific, permanent DNS resolution for that application.
 
 ** It also provides for an IPAddressPool with automatic IP address assignment to configured LoadBalancer services.
