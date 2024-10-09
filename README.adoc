@@ -18,5 +18,7 @@ Enter each directory, in turn, and execute the commands, in the prescribed order
 
 ** An application can use non-routable IP addresses with this design, as long as the client both resolve the FQDN to the correct IP address, and access that IP address.
 
+** After creating the TLS certificate, you can optionally remove the secret that holds your cloud credential secret token. This is more secure, but will prevent cert-manager from automatically updating the certificate.
+
 * The advantage of this Longhorn pattern is that it can be deployed outside of SUSE Rancher. 
 
