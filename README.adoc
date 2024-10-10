@@ -12,10 +12,10 @@ Enter each directory, in turn, and execute the commands in the prescribed order.
 
 ** The Longhorn directory has a similar command to identify the cluster nodes that will run Longhorn.
 
-* The advantage of this MetalLB pattern is that it provides an IPAddressPool for the primary application, e.g. SUSE Private AI, that will not be automatically assigned. This allows for specific, permanent DNS resolution for that application.
-** In most appliations, it would be desirable to provide this IP address to the ingress controller service.
+* The advantage of this MetalLB pattern is that it provides an IPAddressPool for the primary purpose that will not be automatically assigned. This allows for a specific, permanent DNS resolution.
+** In most applications, it would be desirable to provide this IP address to a ingress controller service.
 
-** It also provides for an IPAddressPool with automatic IP address assignment to configured LoadBalancer services.
+** It also provides for an optional IPAddressPool with automatic IP address assignment to configured LoadBalancer services.
 
 * The advantage of the cert-manager pattern is that it uses the DNS01 challenger to create the application TLS certificate. 
 ** This works well where the CA cannot directly access the application web server. 
@@ -23,11 +23,12 @@ Enter each directory, in turn, and execute the commands in the prescribed order.
 ** Note that the CA (Let's Encyrpt in this example) DOES need to be able to access the DNS provider (AWS Route53 in this example).
 *** If someone leverages these instructions with a different DNS provider, please contact me. I'd like to extend this to at least one other provider.
 
-** With this design, an application can use non-routable IP addresses as long as the client can both resolve the FQDN to the correct IP address, and access that IP address.
+** With this design, the hostname in the TLS certificate can resolve to a non-routable IP address (i.e. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) as long as the client can both resolve the FQDN to the correct IP address and access that IP address.
 
-** After creating the TLS certificate, you can optionally remove the secret that holds your cloud credential secret token. This is more secure, but will prevent cert-manager from automatically updating the certificate.
+** After creating the TLS certificate, you can optionally remove the secret that holds your cloud credential secret token. This is more secure, but will prevent cert-manager from automatically updating the certificate before it expires.
 
 * The advantage of this Longhorn pattern is that it can be deployed outside of SUSE Rancher. 
+** The current design specifies two replicas. Modify the batch command that installs the Helm chart, if a different value is needed.
 
 This repo is currently opinionated towards a suse-private-ai installation, but will lose that bias over time.
 
