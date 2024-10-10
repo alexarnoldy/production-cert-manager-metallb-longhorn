@@ -15,4 +15,4 @@ while [ $COUNTER -lt $NODE_COUNT ]; do
 rm /tmp/externalip
 
 echo ""
-echo "Continue when each node running a pod has responded at least once."
+echo -e "\033[35;4mContinue when each node running a pod has responded at least once.\033[0m"

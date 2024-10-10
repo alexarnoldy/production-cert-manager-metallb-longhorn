@@ -4,7 +4,7 @@ read -n1 -p "Are you sure you want to delete the secret, knowing this will preve
 
 echo ""
 
-[ ${YESNO} != y ] && { echo "Exiting without deleting the secret."; echo ""; exit; }
+[ ${YESNO} != y ] && { echo -e "\033[35;4mExiting without deleting the secret.\033[0m"; echo ""; exit; }
 
 source /tmp/variables && \
 kubectl delete -n ${APPLICATION_NAMESPACE} secret route53-credentials-secret 

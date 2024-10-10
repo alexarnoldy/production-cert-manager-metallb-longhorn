@@ -14,7 +14,7 @@ kubectl create -n ${APPLICATION_NAMESPACE} secret generic route53-credentials-se
 ## Verify that value is correct in the secret:
 
 source /tmp/variables && \
-echo -n "secret-access-key="
+echo -ne "\033[35;4msecret-access-key=\033[0m"
 kubectl get -n ${APPLICATION_NAMESPACE} secret route53-credentials-secret -o jsonpath={.data.secret-access-key} | base64 -d; echo ""
 
 echo ""
