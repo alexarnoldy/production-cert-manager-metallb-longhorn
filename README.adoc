@@ -2,7 +2,7 @@
 
 This repository contains directories that contain production ready deployments for MetalLB, cert-manager, and Longhorn.
 
-* Each of the three products/projects can be deployed independently, if needed.
+* Each of the three projects can be deployed independently, if needed.
 
 Enter each directory, in turn, and execute the commands, in the prescribed order. 
 
@@ -23,4 +23,12 @@ Enter each directory, in turn, and execute the commands, in the prescribed order
 ** After creating the TLS certificate, you can optionally remove the secret that holds your cloud credential secret token. This is more secure, but will prevent cert-manager from automatically updating the certificate.
 
 * The advantage of this Longhorn pattern is that it can be deployed outside of SUSE Rancher. 
+
+The versions of the projects used here are:
+
+** cert-manager: v1.15.2
+
+** MetalLB: 0.14.8
+
+** Longhorn: 1.7.1
 
