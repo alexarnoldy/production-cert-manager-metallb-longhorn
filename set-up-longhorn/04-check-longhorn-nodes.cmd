@@ -8,7 +8,7 @@ kubectl get nodes -o wide
 
 echo ""
 
-read -n1 -p "Is this the cluster running the Rancher instance to be upgraded? (y/n) " YESNO
+read -n1 -p "Is this the cluster to be check for Longhorn prerequisites? (y/n) " YESNO
 
 echo ""
 

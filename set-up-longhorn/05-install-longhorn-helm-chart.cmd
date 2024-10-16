@@ -1,0 +1,20 @@
+: "${LONGHORN_NODE_COUNT:=$(cat /tmp/.longhorn-nodes | wc -l)}"
+
+## Need to add a directory in this repo to cover the pre and post work for the AI Helm installation, e.g. add the imagepullsecret to the SAs, and use the custom-values.yaml file.
+
+
+helm repo add longhorn https://charts.longhorn.io
+helm repo update
+
+helm install longhorn-ai longhorn/longhorn \
+--namespace longhorn-system \
+--create-namespace \
+--version 1.7.1 \
+--set replicaSoftAntiAffinity=enabled \
+--set defaultClassReplicaCount=${LONGHORN_NODE_COUNT} \
+--set defaultReplicaCount=${LONGHORN_NODE_COUNT} \
+--set longhornManager.nodeSelector.longhorn="storage-node" \
+--set longhornUI.nodeSelector.longhorn="storage-node" \
+--set longhornDriver.nodeSelector.longhorn="storage-node" \
+--set defaultSettings.systemManagedComponentsNodeSelector.longhorn="storage-node"
+

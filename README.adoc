@@ -12,7 +12,7 @@ Enter each directory, in turn, and execute the commands in the prescribed order.
 
 ** The Longhorn directory has a similar command to identify the cluster nodes that will run Longhorn.
 
-* The advantage of this MetalLB pattern is that it provides an IPAddressPool for the primary purpose that will not be automatically assigned. This allows for a specific, permanent DNS resolution.
+* The advantage of this MetalLB pattern is that it provides an IPAddressPool for a primary purpose that will not be automatically assigned. This allows for a specific, permanent DNS resolution.
 ** In most applications, it would be desirable to provide this IP address to a ingress controller service.
 
 ** It also provides for an optional IPAddressPool with automatic IP address assignment to configured LoadBalancer services.

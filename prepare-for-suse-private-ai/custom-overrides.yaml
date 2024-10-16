@@ -1,0 +1,28 @@
+global:
+  tls:
+    source: secret
+open-webui:
+  ollamaUrls:
+  - http://suse-private-ai-ollama.suse-private-ai.svc.cluster.local:11434
+  persistence:
+    enabled: true
+    storageClass: longhorn
+  ollama:
+    enabled: false
+  pipelines:
+    enabled: true
+    persistence:
+      storageClass: llonghornocal-path
+  ingress:
+    enabled: true
+    class: "nginx"
+    annotations:
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    host: suse-private-ai.susealliances.com
+    tls: true
+    existingSecret: suse-private-ai-tls
+  extraEnvVars:
+  - name: DEFAULT_MODELS
+    value: "gemma:2b"
+  - name: DEFAULT_USER_ROLE
+    value: "user"

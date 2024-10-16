@@ -8,8 +8,8 @@ COUNTER=-${NODE_COUNT}
 
 while [ $COUNTER -lt $NODE_COUNT ]; do
   COUNTER=$((COUNTER + 1))
-  curl http://${EXTERNAL_IP}:8080 
-#  curl http://${c}:8080    ## Use for testing when a load balanced, or another, ExternalIP is not available
+#  curl http://${EXTERNAL_IP}:8080 
+  curl http://${c}:8080    ## Use for testing when a load balanced, or another, ExternalIP is not available
   done
 
 rm /tmp/externalip

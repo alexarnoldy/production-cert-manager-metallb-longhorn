@@ -1,0 +1,8 @@
+## Provide a list of nodes that have the storage and compute resources to support workloads that will use Longhorn storage.
+## The list will be input for SSH commands. 
+## Providing SSH key exchange, i.e. ssh-keygen, will make these steps a bit easier (and more automated)
+#
+## IMPORTANT: Several of the scripts in this directory depend on the format <user>@<hostname or IP address> to identify the Longhorn nodes.
+#
+
+root@192.168.150.112
