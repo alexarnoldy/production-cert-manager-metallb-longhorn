@@ -1,7 +1,6 @@
-source /tmp/variables && \
 kubectl apply -f - <<EOF
 apiVersion: apps/v1
-kind: Daemonset
+kind: DaemonSet
 metadata:
   name: nginx
   namespace: default
