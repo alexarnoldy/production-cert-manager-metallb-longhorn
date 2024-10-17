@@ -1,11 +1,11 @@
-: "${LONGHORN_NODES:=$(grep -w HOSTNAME  /tmp/.longhorn-nodes | awk -FHOSTNAME '{print$2}')}"
+export LONGHORN_NODES=($(grep -w HOSTNAME  /tmp/.longhorn-nodes | awk -FHOSTNAME '{print$2}'))
 
-for EACH in $(cat /tmp/.longhorn-nodes)
+for EACH in "${LONGHORN_NODES[@]}"
 do
   TARGET_NODE=$(kubectl get nodes -o wide | grep "${EACH}" | awk '{print$1}')
-  kubectl label node ${TARGET_NODE} longhorn="storage-node" --overwrite
+  kubectl label node ${TARGET_NODE} "node.longhorn.io/create-default-disk=true" --overwrite
 done
 
 echo ""
 
-kubectl get nodes --show-labels | grep --color longhorn="storage-node"
+kubectl get nodes --show-labels | grep --color "node.longhorn.io/create-default-disk=true"

@@ -6,7 +6,7 @@ export LONGHORN_NODE_COUNT=$(grep -w HOST  /tmp/.longhorn-nodes | wc -l)
 helm repo add longhorn https://charts.longhorn.io
 helm repo update
 
-helm upgrade longhorn-ai longhorn/longhorn \
+helm upgrade longhorn longhorn/longhorn \
 --install \
 --namespace longhorn-system \
 --create-namespace \
@@ -14,8 +14,5 @@ helm upgrade longhorn-ai longhorn/longhorn \
 --set replicaSoftAntiAffinity=enabled \
 --set defaultClassReplicaCount=${LONGHORN_NODE_COUNT} \
 --set defaultReplicaCount=${LONGHORN_NODE_COUNT} \
---set longhornManager.nodeSelector.longhorn="storage-node" \
---set longhornUI.nodeSelector.longhorn="storage-node" \
---set longhornDriver.nodeSelector.longhorn="storage-node" \
---set defaultSettings.systemManagedComponentsNodeSelector.longhorn="storage-node"
+--set createDefaultDiskLabeledNodes=true
 

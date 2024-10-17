@@ -1,6 +1,6 @@
 kubectl apply -f - <<EOF
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
   name: nginx
   namespace: default
