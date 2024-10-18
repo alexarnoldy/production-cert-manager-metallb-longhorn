@@ -20,3 +20,8 @@ echo "Continuing..."
 
 sudo bash -c "curl -sSfL https://raw.githubusercontent.com/longhorn/longhorn/v1.7.1/scripts/environment_check.sh | bash"
 
+echo ""
+
+echo -e "\033[35;4mYou may safely ignore errors for nodes that will not provision Longhorn storage.\033[0m"
+
+echo ""

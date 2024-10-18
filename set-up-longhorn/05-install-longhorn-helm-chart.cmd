@@ -6,13 +6,13 @@ export LONGHORN_NODE_COUNT=$(grep -w HOST  /tmp/.longhorn-nodes | wc -l)
 helm repo add longhorn https://charts.longhorn.io
 helm repo update
 
-helm upgrade longhorn longhorn/longhorn \
---install \
+helm install longhorn longhorn/longhorn \
 --namespace longhorn-system \
 --create-namespace \
 --version 1.7.1 \
 --set replicaSoftAntiAffinity=enabled \
 --set defaultClassReplicaCount=${LONGHORN_NODE_COUNT} \
 --set defaultReplicaCount=${LONGHORN_NODE_COUNT} \
---set createDefaultDiskLabeledNodes=true
+--set createDefaultDiskLabeledNodes=true \
+--set v1DataEngine=true
 
