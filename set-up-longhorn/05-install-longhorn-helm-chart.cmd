@@ -11,8 +11,8 @@ helm install longhorn longhorn/longhorn \
 --create-namespace \
 --version 1.7.1 \
 --set replicaSoftAntiAffinity=enabled \
---set defaultClassReplicaCount=${LONGHORN_NODE_COUNT} \
---set defaultReplicaCount=${LONGHORN_NODE_COUNT} \
---set createDefaultDiskLabeledNodes=true \
 --set v1DataEngine=true
+#--set defaultClassReplicaCount=${LONGHORN_NODE_COUNT} \
+#--set defaultReplicaCount=${LONGHORN_NODE_COUNT} \
+#--set createDefaultDiskLabeledNodes=true \
 
