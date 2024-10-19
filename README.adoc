@@ -28,7 +28,7 @@ Enter each directory, in turn, and execute the commands in the prescribed order.
 ** After creating the TLS certificate, you can optionally remove the secret that holds your cloud credential secret token. This is more secure, but will prevent cert-manager from automatically updating the certificate before it expires.
 
 * The advantage of this Longhorn pattern is that it can be deployed outside of SUSE Rancher. 
-** The current design causes storage to be deployed on specific nodes. This allows deploying where nodes of different capacities are in use.
+** The current design causes storage to be deployed on specific nodes and only the number of replicas as there are nodes (with a maximum of three). This allows deploying where nodes of different capacities are in use.
 
 This repo is currently opinionated towards a suse-private-ai installation, but will lose that bias over time.
 
