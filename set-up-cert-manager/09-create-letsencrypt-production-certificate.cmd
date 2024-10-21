@@ -6,7 +6,7 @@ metadata:
   name: ${APPLICATION_NAME}-certificate
   namespace: ${APPLICATION_NAMESPACE}
 spec:
-  secretName: ${APPLICATION_NAME}-tls # Kubernetes secret that will contain the tls.key and tls.crt of the new cert
+  secretName: ${APPLICATION_TLS_SECRET} # Kubernetes secret that will contain the tls.key and tls.crt of the new cert
   commonName: ${FQDN}
   dnsNames:
     - ${FQDN}

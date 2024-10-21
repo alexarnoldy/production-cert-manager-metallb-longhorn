@@ -8,7 +8,7 @@ kubectl apply -f <<EOF
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: longhorn-1-replica
+  name: longhorn-node-focused
   annotations:
     storageclass.kubernetes.io/is-default-class: "true" 
 provisioner: driver.longhorn.io

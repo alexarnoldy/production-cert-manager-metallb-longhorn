@@ -6,23 +6,38 @@ open-webui:
   - http://suse-private-ai-ollama.suse-private-ai.svc.cluster.local:11434
   persistence:
     enabled: true
-    storageClass: longhorn
+    storageClass: longhorn-node-focused
   ollama:
     enabled: false
   pipelines:
     enabled: true
     persistence:
-      storageClass: llonghornocal-path
+      storageClass: longhorn-node-focused
   ingress:
     enabled: true
     class: "nginx"
     annotations:
       nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    host: suse-private-ai.susealliances.com
+    host: ${FQDN}
     tls: true
-    existingSecret: suse-private-ai-tls
+    existingSecret: ${APPLICATION_TLS_SECRET}
   extraEnvVars:
   - name: DEFAULT_MODELS
     value: "gemma:2b"
   - name: DEFAULT_USER_ROLE
     value: "user"
+milvus:
+  minio:
+    persistence:
+      size: 50Gi
+  pulsar:
+    bookkeeper:
+      volumes:
+        journal:
+          size: 20Gi
+        ledgers:
+          size: 50Gi
+  kafka:
+    persistence:
+      size: 50Gi
+

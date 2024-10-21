@@ -1,7 +1,7 @@
-vim .variables
+cp .variables /tmp/.variables
+vim /tmp/.variables
 
-egrep -v '^$|#' .variables > .variables-1
+egrep -v '^$|#' /tmp/.variables > /tmp/.variables-1
 
-mv .variables-1 .variables
+mv /tmp/.variables-1 /tmp/.variables
 
-cp .variables /tmp/variables
