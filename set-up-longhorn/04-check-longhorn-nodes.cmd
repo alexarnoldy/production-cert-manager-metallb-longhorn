@@ -22,6 +22,6 @@ sudo bash -c "curl -sSfL https://raw.githubusercontent.com/longhorn/longhorn/v1.
 
 echo ""
 
-echo -e "\033[35;4mYou may safely ignore errors for nodes that will not provision Longhorn storage.\033[0m"
+echo -e "\033[35;4mYou may safely ignore errors for nodes that will not provision Longhorn storage\033[0m"
 
 echo ""
