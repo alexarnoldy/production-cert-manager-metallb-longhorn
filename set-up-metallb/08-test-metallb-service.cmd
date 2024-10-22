@@ -1,8 +1,8 @@
 source /tmp/variables && \
-kubectl get svc -n default | grep -w nginx > /tmp/externalip
+kubectl get svc -n ${APPLICATION_NAMESPACE} | grep -w nginx > /tmp/externalip
 read -r a b c EXTERNAL_IP e f < /tmp/externalip
 
-#NODE_COUNT=$(kubectl get nodes --no-headers | wc -l)
+#NODE_COUNT=$(kubectl -n ${APPLICATION_NAMESPACE} get nodes --no-headers | wc -l)
 
 #COUNTER=-${NODE_COUNT}
 

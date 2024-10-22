@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: nginx
-  namespace: default
+  namespace: ${APPLICATION_NAMESPACE}
 spec:
   selector:
     matchLabels:
@@ -32,7 +32,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx
-  namespace: default
+  namespace: ${APPLICATION_NAMESPACE}
 spec:
   ports:
   - name: http

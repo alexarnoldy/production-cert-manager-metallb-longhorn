@@ -1,2 +1,3 @@
-kubectl delete ds nginx -n default
-kubectl delete service nginx -n default
+source /tmp/variables && \
+kubectl -n ${APPLICATION_NAMESPACE} delete ds nginx 
+kubectl -n ${APPLICATION_NAMESPACE} delete service nginx 
