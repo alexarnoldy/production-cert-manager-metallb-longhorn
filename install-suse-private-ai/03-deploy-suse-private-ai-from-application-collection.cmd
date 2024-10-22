@@ -10,7 +10,7 @@ echo ""
 
 ## Create the imagePUllSecret:
 
-kubectl get namespaces -o name
+kubectl get namespaces -o name | awk -F\/ '{print$2}
 
 echo "" 
 
@@ -29,7 +29,7 @@ helm registry login dp.apps.rancher.io/charts -u ${APP_COLLECTION_USERNAME} -p $
 helm upgrade --install \
   suse-private-ai  . \
   --namespace suse-private-ai \
-  --values /tmp/.custom-overrides.yaml
+  --values /tmp/custom-overrides.yaml
 
 ## Update the service accounts with the imagePullSecret:
 
