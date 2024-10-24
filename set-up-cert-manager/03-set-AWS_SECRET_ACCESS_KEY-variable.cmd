@@ -1,3 +1,8 @@
+## Create the namespace
+
+source /tmp/variables && \
+kubectl create namespace ${APPLICATION_NAMESPACE}
+
 ## Gather the secret token:
 
 read -p "Provide the AWS_SECRET_ACCESS_KEY for the account that can update AWS Route53 records: " AWS_SECRET_ACCESS_KEY

@@ -1,6 +1,6 @@
 ## Gather the secret token:
 
-read -p "Provide the Application Collectoin username: " APP_COLLECTION_USERNAME
+read -p "Provide the Application Collection username: " APP_COLLECTION_USERNAME
 
 echo ""
 
